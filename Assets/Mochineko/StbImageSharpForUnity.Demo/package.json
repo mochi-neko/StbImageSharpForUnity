@@ -1,0 +1,15 @@
+{
+  "name": "mochineko.stbimagesharp-for-utity.demo",
+  "displayName": "A demo of StbImageSharp for Unity",
+  "version": "2.22.6",
+  "unity": "2021.3",
+  "description": "A demo of StbImageSharp for Unity.",
+  "author": {
+    "name": "Mochineko",
+    "url": "https://github.com/mochi-neko"
+  },
+  "dependencies": {
+    "stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbImageSharp",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.3.1"
+  }
+}

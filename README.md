@@ -9,7 +9,25 @@ Decodes image and converts [Texture2D](https://docs.unity3d.com/jp/current/Scrip
 
 ## How to import by UPM
 
-Write after.
+Add
+
+```
+dependencies: {
+    "stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbImageSharp",
+    "mochineko.stbimagesharp-for-utity": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity",
+}
+```
+
+to `/Packages/manifest.json` on your Unity project.
+
+If you refer demo, additionally add
+
+```
+"mochineko.stbimagesharp-for-utity.demo": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity.Demo",
+```
+
+to `/Packages/manifest.json`.
+
 
 ## How to use
 
@@ -23,6 +41,7 @@ Write after.
 - TGA
 - PSD
 - GIF
+- HDR
 
 Refers [the original README](https://github.com/StbSharp/StbImageSharp).
 

@@ -1,0 +1,11 @@
+{
+  "name": "stbsharp.stbimagesharp",
+  "displayName": "StbImageSharp",
+  "version": "2.22.6",
+  "unity": "2021.3",
+  "description": "StbImageSharp is C# port of the stb_image.h, which is C library to load images in JPG, PNG, BMP, TGA, PSD, GIF and HDR formats.",
+  "author": {
+    "name": "StbSharp",
+    "url": "https://github.com/StbSharp/StbImageSharp"
+  }
+}

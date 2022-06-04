@@ -1,0 +1,14 @@
+{
+  "name": "mochineko.stbimagesharp-for-utity",
+  "displayName": "StbImageSharp for Unity",
+  "version": "2.22.6",
+  "unity": "2021.3",
+  "description": "An Unity extension of StbImageSharp.",
+  "author": {
+    "name": "Mochineko",
+    "url": "https://github.com/mochi-neko"
+  },
+  "dependencies": {
+    "stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbImageSharp"
+  }
+}
