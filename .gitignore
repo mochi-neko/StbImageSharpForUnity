@@ -58,3 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# UserSettings for Unity
+/[Uu]er[Ss]ettings/
