@@ -26,7 +26,7 @@ If you refer demo, additionally add
 "mochineko.stbimagesharp-for-utity.demo": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity.Demo",
 ```
 
-to `/Packages/manifest.json`.
+to dependencies.
 
 
 ## How to use
