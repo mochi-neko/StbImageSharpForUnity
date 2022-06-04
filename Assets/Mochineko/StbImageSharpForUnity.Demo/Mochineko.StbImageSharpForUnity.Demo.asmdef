@@ -1,0 +1,18 @@
+{
+    "name": "Mochineko.StbImageSharpForUnity.Demo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fac980d0a0def28459262c65dfd2a32d",
+        "GUID:4b7e97d9b45fc704a97485f8a581efe8",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
