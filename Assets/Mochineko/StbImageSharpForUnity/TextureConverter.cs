@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Mochineko.StbImageSharpForUnity
 {
-    public static class ImageConverter
+    public static class TextureConverter
     {
         /// <summary>
         /// Converts <see cref="ImageResult"/> to <see cref="Texture2D"/>.
@@ -16,7 +16,7 @@ namespace Mochineko.StbImageSharpForUnity
         public static Texture2D ToTexture2D(
             this ImageResult imageResult,
             bool mipChain = false,
-            bool linear = true)
+            bool linear = false)
         {
             var texture = new Texture2D(
                 width:imageResult.Width,
