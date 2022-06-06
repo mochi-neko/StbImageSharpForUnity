@@ -1,7 +1,7 @@
 StbImageSharpForUnity
 ===
 
-Unity extension of StbImageSharp.
+Unity extension of [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
 ## Summary
 
