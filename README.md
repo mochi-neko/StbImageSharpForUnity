@@ -3,7 +3,7 @@ StbImageSharpForUnity
 
 Provides an Unity extension of [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
-Decodes an image file `byte[]` or `Stream` and converts to [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) on Unity without any native libraries.
+Decodes an image file `byte[]` or `Stream` and converts to [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) on Unity with pure C# (without any native libraries).
 
 ## How to import by UPM
 
