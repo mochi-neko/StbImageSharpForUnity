@@ -5,7 +5,7 @@ Unity extension of StbImageSharp.
 
 ## Summary
 
-Decodes image and converts [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) from `byte[]` or `Stream` on Unity by using [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
+Decodes image and converts to [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) from `byte[]` or `Stream` on Unity by using [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
 ## How to import by UPM
 
@@ -31,7 +31,25 @@ to dependencies.
 
 ## How to use
 
-Write after.
+Default usage with UniTask is as follows:
+
+```
+private async UniTask<Texture2D> LoadImageAsync(byte[] data)
+{
+    await UniTask.SwitchToThreadPool();
+
+    // Decode image on a thread pool.
+    var imageResult = ImageDecoder.DecodeImage(data);
+
+    await UniTask.SwitchToMainThread();
+
+    // Create texture and set data on main thread.
+    return imageResult.ToTexture2D();
+}
+```
+.
+
+See also [Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/Assets/Mochineko/StbImageSharpForUnity.Demo/ImageLoaderDemo.cs).
 
 ## Support Codecs
 
@@ -43,17 +61,19 @@ Write after.
 - GIF
 - HDR
 
-Refers [the original README](https://github.com/StbSharp/StbImageSharp).
+See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
 ## Support Platforms
 
-All platforms supported by Unity because StbImageSharp does not use native libraries.
+All platform supported by Unity because StbImageSharp does not use native libraries.
 
-Refers [the original README](https://github.com/StbSharp/StbImageSharp).
+See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
 ## TODO
 
-- GIF extension on Unity
+- GIF extension for Unity
+- HDR extension for Unity
+- Unsafe API of decoding
 
 ## Credits
 

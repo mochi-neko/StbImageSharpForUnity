@@ -44,7 +44,7 @@ namespace Mochineko.StbImageSharpForUnity.Demo
 
         private void Load()
         {
-            LoadImageAsync().Forget();
+            DownloadAndSetImageAsync().Forget();
         }
         
         private void Clear()
@@ -52,19 +52,26 @@ namespace Mochineko.StbImageSharpForUnity.Demo
             Destroy(texture);
         }
         
-        private async UniTask LoadImageAsync()
+        private async UniTask DownloadAndSetImageAsync()
         {
             await UniTask.SwitchToThreadPool();
 
             var data = await httpClient.GetByteArrayAsync(url);
 
+            var texture = await LoadImageAsync(data);
+
+            target.material.mainTexture = texture;
+        }
+        
+        private async UniTask<Texture2D> LoadImageAsync(byte[] data)
+        {
+            await UniTask.SwitchToThreadPool();
+
             var imageResult = ImageDecoder.DecodeImage(data);
 
             await UniTask.SwitchToMainThread();
 
-            texture = imageResult.ToTexture2D();
-
-            target.material.mainTexture = texture;
+            return imageResult.ToTexture2D();
         }
     }
 }
