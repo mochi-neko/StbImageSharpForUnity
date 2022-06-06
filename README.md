@@ -3,9 +3,7 @@ StbImageSharpForUnity
 
 Provides an Unity extension of [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
-## Summary
-
-Decodes image and converts to [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) from `byte[]` or `Stream` on Unity by using [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
+Decodes an image file `byte[]` or `Stream` and converts to [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) on Unity without any native libraries.
 
 ## How to import by UPM
 
@@ -20,7 +18,7 @@ dependencies: {
 
 to `/Packages/manifest.json` on your Unity project.
 
-If you refer demo, additionally add
+Also you can add a demo codes by adding
 
 ```
 "mochineko.stbimagesharp-for-utity.demo": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity.Demo",
@@ -31,7 +29,7 @@ to dependencies.
 
 ## How to use
 
-Default usage with UniTask is as follows:
+Default usage with the [UniTask](https://github.com/Cysharp/UniTask) is as follows:
 
 ```
 private async UniTask<Texture2D> LoadImageAsync(byte[] data)
@@ -65,7 +63,7 @@ See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
 ## Support Platforms
 
-All platform supported by Unity because StbImageSharp does not use native libraries.
+All platforms supported by Unity are supported because [StbImageSharp](https://github.com/StbSharp/StbImageSharp) is written by pure C#.
 
 See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
