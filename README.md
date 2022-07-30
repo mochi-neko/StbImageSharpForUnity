@@ -3,7 +3,7 @@ StbImageSharpForUnity
 
 Provides an Unity extension of [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
-Decodes an image file `byte[]` or `Stream` and converts to [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) on Unity with pure C# (without any native libraries).
+Decodes a binary image file `byte[]` or `Stream` and converts to [Texture2D](https://docs.unity3d.com/jp/current/ScriptReference/Texture2D-ctor.html) on Unity with pure C# (without any native libraries).
 
 ## How to import by UPM
 
@@ -16,7 +16,7 @@ dependencies: {
 }
 ```
 
-to `/Packages/manifest.json` on your Unity project.
+to `/Packages/manifest.json` on your Unity project and add its reference to your Assembly Definition.
 
 Also you can add a demo codes by adding
 
@@ -24,24 +24,24 @@ Also you can add a demo codes by adding
 "mochineko.stbimagesharp-for-utity.demo": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity.Demo",
 ```
 
-to dependencies.
+to your dependencies.
 
 
 ## How to use
 
-Default usage with the [UniTask](https://github.com/Cysharp/UniTask) is as follows:
+A sample usage with the [UniTask](https://github.com/Cysharp/UniTask) is as follows:
 
 ```
 private async UniTask<Texture2D> LoadImageAsync(byte[] data)
 {
     await UniTask.SwitchToThreadPool();
 
-    // Decode image on a thread pool.
+    // Decodes an image on a thread pool.
     var imageResult = ImageDecoder.DecodeImage(data);
 
     await UniTask.SwitchToMainThread();
 
-    // Create texture and set data on main thread.
+    // Creates a texture and set the pixel data on the main thread.
     return imageResult.ToTexture2D();
 }
 ```
@@ -67,16 +67,9 @@ All platforms supported by Unity are supported because [StbImageSharp](https://g
 
 See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
-## TODO
-
-- GIF extension for Unity
-- HDR extension for Unity
-- Unsafe API of decoding
-
 ## Credits
 
 - [StrImageSharp](https://github.com/StbSharp/StbImageSharp)
-
 
 ## License
 
