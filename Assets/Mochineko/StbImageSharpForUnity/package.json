@@ -1,7 +1,7 @@
 {
   "name": "mochineko.stbimagesharp-for-utity",
   "displayName": "StbImageSharp for Unity",
-  "version": "2.22.6",
+  "version": "1.0.1",
   "unity": "2021.3",
   "description": "An Unity extension of StbImageSharp.",
   "author": {
