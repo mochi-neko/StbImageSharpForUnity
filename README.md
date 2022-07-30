@@ -70,6 +70,7 @@ See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 ## Credits
 
 - [StrImageSharp](https://github.com/StbSharp/StbImageSharp)
+- [stb](https://github.com/nothings/stb)
 
 ## License
 
