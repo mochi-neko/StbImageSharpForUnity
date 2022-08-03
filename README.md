@@ -11,8 +11,8 @@ Add
 
 ```
 dependencies: {
-    "stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbImageSharp",
-    "mochineko.stbimagesharp-for-utity": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity",
+    "com.stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbImageSharp",
+    "com.mochineko.stbimagesharp-for-unity": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity",
 }
 ```
 
@@ -21,7 +21,7 @@ to `/Packages/manifest.json` on your Unity project and add its reference to your
 Also you can add a demo codes by adding
 
 ```
-"mochineko.stbimagesharp-for-utity.demo": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity.Demo",
+"com.mochineko.stbimagesharp-for-unity.demo": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity.Demo",
 ```
 
 to your dependencies.
@@ -56,8 +56,8 @@ See also [Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/As
 - BMP
 - TGA
 - PSD
-- GIF
-- HDR
+- (GIF)
+- (HDR)
 
 See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
 
