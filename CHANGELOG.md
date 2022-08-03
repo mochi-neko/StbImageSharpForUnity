@@ -12,10 +12,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Unsafe APIs for decoding.
 - Asynchronous APIs for decoding.
 
+
+## [1.1.3] - 2022-08-03
+
+### Changed
+- Insert `com.` to package name of `StbImageSharp`, `StbImageSharpForUnity` and `StbImageSharpForUnity`.
+- Fix package name typo of `StbImageSharpForUnity` and `StbImageSharpForUnity`.
+- Set original versioning of `StbImageForUnity.Demo`.
+
 ## [1.1.2] - 2022-07-30
 
 ### Changed
 - Change the `AutoReferenced` option of assembly definitions to `true` in order to be able to refer assemblies from the Assembly-CSharp (the default assembly crated by the Unity).
+- Set original versioning of `StbImageForUnity`.
 
 ## [1.1.1] - 2022-06-06
 
