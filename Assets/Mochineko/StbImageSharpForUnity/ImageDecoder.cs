@@ -15,7 +15,7 @@ namespace Mochineko.StbImageSharpForUnity
             Stream stream,
             ColorComponents requiredColorComponents = ColorComponents.Default)
         {
-            // Flips vertical direction of image along with Unity coordinates.
+            // Flips vertical direction of image along with the Unity coordinates.
             StbImage.stbi_set_flip_vertically_on_load(1);
             
             return ImageResult.FromStream(stream, requiredColorComponents);
@@ -34,7 +34,5 @@ namespace Mochineko.StbImageSharpForUnity
             using var stream = new MemoryStream(data);
             return DecodeImage(stream, requiredColorComponents);
         }
-        
-        
     }
 }

@@ -19,15 +19,15 @@ namespace Mochineko.StbImageSharpForUnity
             bool linear = false)
         {
             var texture = new Texture2D(
-                width:imageResult.Width,
-                height:imageResult.Height,
-                textureFormat:imageResult.Comp.ToUnityTextureFormat(),
-                mipChain:mipChain,
-                linear:linear
+                width: imageResult.Width,
+                height: imageResult.Height,
+                textureFormat: imageResult.Comp.ToUnityTextureFormat(),
+                mipChain: mipChain,
+                linear: linear
             );
-            
+
             texture.LoadRawTextureData(imageResult.Data);
-            
+
             texture.Apply();
 
             return texture;

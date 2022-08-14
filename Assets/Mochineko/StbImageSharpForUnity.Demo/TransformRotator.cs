@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Mochineko.StbImageSharpForUnity.Demo
 {
-    // Debugs main thread spiking visually.
+    // Debugs the main thread blocking visually.
     internal sealed class TransformRotator : MonoBehaviour
     {
         [SerializeField] private float speed = 1;

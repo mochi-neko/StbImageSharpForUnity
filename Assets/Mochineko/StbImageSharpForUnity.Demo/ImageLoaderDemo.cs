@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Mochineko.StbImageSharpForUnity.Demo
@@ -12,66 +11,56 @@ namespace Mochineko.StbImageSharpForUnity.Demo
         [SerializeField] private string url;
         [SerializeField] private Renderer target;
 
-        private HttpClient httpClient;
-        private Texture2D texture;
-
-        private void Awake()
-        {
-            httpClient = new HttpClient();
-        }
-
+        private Texture2D texture = null;
+        
         private void OnDestroy()
         {
-            httpClient.Dispose();
+            ClearTexture();
         }
 
         private void Start()
         {
-            Load();
+            DownloadAndSetImageAsync().Forget();
         }
 
         private void OnGUI()
         {
-            if (GUILayout.Button($"{nameof(Load)}"))
+            if (GUILayout.Button("Load"))
             {
-                Load();
+                DownloadAndSetImageAsync().Forget();
             }
-            if (GUILayout.Button($"{nameof(Clear)}"))
+
+            if (GUILayout.Button("Clear"))
             {
-                Clear();
+                ClearTexture();
             }
         }
 
-        private void Load()
+        private void ClearTexture()
         {
-            DownloadAndSetImageAsync().Forget();
+            if (texture != null)
+            {
+                UnityEngine.Object.Destroy(texture);
+                texture = null;
+                target.material.mainTexture = null;
+            }
         }
-        
-        private void Clear()
-        {
-            Destroy(texture);
-        }
-        
+
         private async UniTask DownloadAndSetImageAsync()
         {
+            var client = SingletonHttpClient.Instance;
+            
             await UniTask.SwitchToThreadPool();
 
-            var data = await httpClient.GetByteArrayAsync(url);
-
-            var texture = await LoadImageAsync(data);
-
-            target.material.mainTexture = texture;
-        }
-        
-        private async UniTask<Texture2D> LoadImageAsync(byte[] data)
-        {
-            await UniTask.SwitchToThreadPool();
+            var data = await client.GetByteArrayAsync(url);
 
             var imageResult = ImageDecoder.DecodeImage(data);
 
             await UniTask.SwitchToMainThread();
 
-            return imageResult.ToTexture2D();
+            texture = imageResult.ToTexture2D();
+
+            target.material.mainTexture = texture;
         }
     }
 }
