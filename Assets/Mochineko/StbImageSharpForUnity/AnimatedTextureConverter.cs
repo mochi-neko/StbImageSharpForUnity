@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using StbSharp.StbImageSharp;
+using StbImageSharp;
 
 namespace Mochineko.StbImageSharpForUnity
 {

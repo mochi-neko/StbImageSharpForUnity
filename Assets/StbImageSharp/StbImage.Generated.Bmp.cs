@@ -2,7 +2,7 @@
 
 using System.Runtime.InteropServices;
 
-namespace StbSharp.StbImageSharp
+namespace StbImageSharp
 {
 	unsafe partial class StbImage
 	{

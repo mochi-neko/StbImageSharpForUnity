@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace StbSharp.StbImageSharp
+namespace StbImageSharp
 {
 #if !STBSHARP_INTERNAL
 	public

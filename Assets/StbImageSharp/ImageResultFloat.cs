@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace StbSharp.StbImageSharp
+namespace StbImageSharp
 {
 #if !STBSHARP_INTERNAL
 	public

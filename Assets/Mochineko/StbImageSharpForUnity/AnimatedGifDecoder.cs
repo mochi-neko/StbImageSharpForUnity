@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using StbSharp.StbImageSharp;
+using StbImageSharp;
 
 namespace Mochineko.StbImageSharpForUnity
 {
@@ -19,7 +19,7 @@ namespace Mochineko.StbImageSharpForUnity
                 ColorComponents requiredColorComponents = ColorComponents.Default)
         {
             // Flips vertical direction of image along with the Unity coordinates.
-            StbImage.stbi__vertically_flip_on_load = 1;
+            StbImage.stbi_set_flip_vertically_on_load(1);
             
             return (ImageResult.AnimatedGifFramesFromStream(stream, requiredColorComponents), stream);
         }
