@@ -7,11 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 ### Added
-- GIF support for the Unity.
 - HDR support for the Unity.
 - Unsafe APIs for decoding.
 - Asynchronous APIs for decoding.
 
+### Fixed
+- Vertical flip of GIF textures.
+
+## [1.2.0] - 2022-08-14
+
+### Added
+- GIF support.
+
+### Changed
+- Blush up demos.
 
 ## [1.1.3] - 2022-08-03
 

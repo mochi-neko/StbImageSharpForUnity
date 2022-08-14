@@ -11,7 +11,7 @@ Add
 
 ```
 dependencies: {
-    "com.stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbSharp/StbImageSharp",
+    "com.stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbImageSharp",
     "com.mochineko.stbimagesharp-for-unity": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity",
 }
 ```
@@ -49,6 +49,8 @@ private async UniTask<Texture2D> LoadImageAsync(byte[] data)
 
 See also [Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/Assets/Mochineko/StbImageSharpForUnity.Demo/ImageLoaderDemo.cs).
 
+For GIF images, see [GIF Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/Assets/Mochineko/StbImageSharpForUnity.Demo/GifLoaderDemo.cs).
+
 ## Support Codecs
 
 - JPG
@@ -56,7 +58,7 @@ See also [Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/As
 - BMP
 - TGA
 - PSD
-- (GIF)
+- GIF
 - (HDR)
 
 See also [StbImageSharp](https://github.com/StbSharp/StbImageSharp).
