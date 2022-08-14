@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace StbImageSharp
+namespace StbSharp.StbImageSharp
 {
 #if !STBSHARP_INTERNAL
 	public
