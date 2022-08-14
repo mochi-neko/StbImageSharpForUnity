@@ -18,8 +18,8 @@ namespace Mochineko.StbImageSharpForUnity
                 Stream stream,
                 ColorComponents requiredColorComponents = ColorComponents.Default)
         {
-            // Flips vertical direction of image along with the Unity coordinates.
-            StbImage.stbi_set_flip_vertically_on_load(1);
+            // FIXME: It does not work for GIF.
+            //StbImage.stbi_set_flip_vertically_on_load(1);
             
             return (ImageResult.AnimatedGifFramesFromStream(stream, requiredColorComponents), stream);
         }
