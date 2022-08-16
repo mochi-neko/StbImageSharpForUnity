@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Vertical flip of GIF textures.
 
+## [1.2.1] - 2022-08-16
+
+### Fixed
+- Fix dependencies error of `package.json`.
+
 ## [1.2.0] - 2022-08-14
 
 ### Added
