@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Vertical flip of GIF textures.
 
+## [1.2.2] - 2022-09-26
+
+### Changed
+- Remove and ignore `.DS_Store` files on macOS.
+- Remove dependencies in `package.json`.
+
 ## [1.2.1] - 2022-08-16
 
 ### Fixed
