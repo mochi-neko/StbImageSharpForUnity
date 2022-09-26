@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Vertical flip of GIF textures.
 
+## [1.2.3] - 20222-09-26
+
+### Changed
+- Remove unnecessary `IDisposable` from the GIF API.
+
 ## [1.2.2] - 2022-09-26
 
 ### Changed

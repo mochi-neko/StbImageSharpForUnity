@@ -1,7 +1,7 @@
 {
   "name": "com.mochineko.stbimagesharp-for-unity.demo",
   "displayName": "A demo of StbImageSharp for Unity",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "unity": "2021.3",
   "description": "A demo of StbImageSharp for Unity.",
   "author": {
