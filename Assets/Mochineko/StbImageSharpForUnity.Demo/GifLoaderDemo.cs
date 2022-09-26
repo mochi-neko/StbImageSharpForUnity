@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using StbImageSharp;
 using UnityEngine;
 
 namespace Mochineko.StbImageSharpForUnity.Demo
@@ -18,7 +17,6 @@ namespace Mochineko.StbImageSharpForUnity.Demo
         
         private IReadOnlyList<AnimatedTexture> animatedTextures = null;
         private CancellationTokenSource cancellationTokenSource = null;
-        private IDisposable disposable = null;
         
         private void Start()
         {
@@ -54,9 +52,6 @@ namespace Mochineko.StbImageSharpForUnity.Demo
                     animatedTexture.Dispose();
                 }
                 animatedTextures = null;
-                
-                disposable.Dispose();
-                disposable = null;
             }
 
             target.material.mainTexture = null;
@@ -72,12 +67,13 @@ namespace Mochineko.StbImageSharpForUnity.Demo
 
             var data = await client.GetByteArrayAsync(url);
 
-            var result = AnimatedGifDecoder.DecodeGifImage(data);
-            disposable = result.disposable;
+            using var stream = new MemoryStream(data);
+
+            var result = AnimatedGifDecoder.DecodeGifImage(stream);
 
             await UniTask.SwitchToMainThread();
 
-            animatedTextures = result.enumerable.ToAnimatedTextures()
+            animatedTextures = result.ToAnimatedTextures()
                 .OrderBy(frame => frame.DelayInMs)
                 .ToList();
 
