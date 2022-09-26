@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 # UserSettings for Unity
 /[Uu]er[Ss]ettings/
+
+# for macOS
+.DS_Store
