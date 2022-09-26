@@ -7,8 +7,5 @@
   "author": {
     "name": "Mochineko",
     "url": "https://github.com/mochi-neko"
-  },
-  "dependencies": {
-    "com.stbsharp.stbimagesharp": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/StbImageSharp"
   }
 }

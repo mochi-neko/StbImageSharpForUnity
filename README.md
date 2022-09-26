@@ -22,6 +22,8 @@ Also you can add a demo codes by adding
 
 ```
 "com.mochineko.stbimagesharp-for-unity.demo": "https://github.com/mochi-neko/StbImageSharpForUnity.git?path=/Assets/Mochineko/StbImageSharpForUnity.Demo",
+"com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+
 ```
 
 to your dependencies.
