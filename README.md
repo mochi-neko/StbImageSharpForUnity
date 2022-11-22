@@ -77,7 +77,7 @@ See [CHANGELOG.md](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main
 
 ## Credits
 
-- [StrImageSharp](https://github.com/StbSharp/StbImageSharp)
+- [StbImageSharp](https://github.com/StbSharp/StbImageSharp)
 - [stb](https://github.com/nothings/stb)
 
 See also [NOTICE.md](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/NOTICE.md).
