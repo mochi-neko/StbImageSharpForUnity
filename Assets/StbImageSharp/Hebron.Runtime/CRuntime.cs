@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace StbImageSharp
+namespace Hebron.Runtime
 {
 	internal static unsafe class CRuntime
 	{
@@ -19,6 +19,16 @@ namespace StbImageSharp
 			MemoryStats.Allocated();
 
 			return ptr.ToPointer();
+		}
+
+		public static void free(void* a)
+		{
+			if (a == null)
+				return;
+
+			var ptr = new IntPtr(a);
+			Marshal.FreeHGlobal(ptr);
+			MemoryStats.Freed();
 		}
 
 		public static void memcpy(void* a, void* b, long size)
@@ -87,16 +97,6 @@ namespace StbImageSharp
 			}
 		}
 
-		public static void free(void* a)
-		{
-			if (a == null)
-				return;
-
-			var ptr = new IntPtr(a);
-			Marshal.FreeHGlobal(ptr);
-			MemoryStats.Freed();
-		}
-
 		public static void memset(void* ptr, int value, long size)
 		{
 			var bptr = (byte*)ptr;
@@ -152,11 +152,11 @@ namespace StbImageSharp
 			return number * Math.Pow(2, exponent);
 		}
 
-		public static int strcmp(sbyte *src, string token)
+		public static int strcmp(sbyte* src, string token)
 		{
 			var result = 0;
 
-			for(var i = 0; i < token.Length; ++i)
+			for (var i = 0; i < token.Length; ++i)
 			{
 				if (src[i] != token[i])
 				{
@@ -182,12 +182,12 @@ namespace StbImageSharp
 			return result;
 		}
 
-		public static long strtol(sbyte *start, sbyte **end, int radix)
+		public static long strtol(sbyte* start, sbyte** end, int radix)
 		{
 			// First step - determine length
 			var length = 0;
 			sbyte* ptr = start;
-			while(numbers.IndexOf((char)*ptr) != -1)
+			while (numbers.IndexOf((char)*ptr) != -1)
 			{
 				++ptr;
 				++length;
@@ -197,7 +197,7 @@ namespace StbImageSharp
 
 			// Now build up the number
 			ptr = start;
-			while(length > 0)
+			while (length > 0)
 			{
 				long num = numbers.IndexOf((char)*ptr);
 				long pow = (long)Math.Pow(10, length - 1);

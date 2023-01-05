@@ -1,16 +1,11 @@
 ﻿using System.Threading;
 
-namespace StbImageSharp
+namespace Hebron.Runtime
 {
-#if !STBSHARP_INTERNAL
-	public
-#else
-    internal
-#endif
-	static class MemoryStats
+	internal unsafe static class MemoryStats
 	{
 		private static int _allocations;
-
+		 
 		public static int Allocations
 		{
 			get
