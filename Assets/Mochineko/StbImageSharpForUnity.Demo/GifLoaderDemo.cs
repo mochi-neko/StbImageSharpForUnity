@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -14,18 +13,18 @@ namespace Mochineko.StbImageSharpForUnity.Demo
     {
         [SerializeField] private string url;
         [SerializeField] private Renderer target;
-        
-        private IReadOnlyList<AnimatedTexture> animatedTextures = null;
+
+        private MemoryStream stream = null;
         private CancellationTokenSource cancellationTokenSource = null;
-        
+
         private void Start()
         {
             DownloadAndStartAnimationAsync().Forget();
         }
-        
+
         private void OnDestroy()
         {
-            ClearTextures();
+            Clear();
         }
 
         private void OnGUI()
@@ -34,71 +33,86 @@ namespace Mochineko.StbImageSharpForUnity.Demo
             {
                 DownloadAndStartAnimationAsync().Forget();
             }
+
             if (GUILayout.Button("Clear"))
             {
-                ClearTextures();
+                Clear();
             }
         }
 
-        private void ClearTextures()
+        private void Clear()
         {
-            if (cancellationTokenSource != null)
-            {
-                cancellationTokenSource.Cancel();
-                cancellationTokenSource = null;
-                
-                foreach (var animatedTexture in animatedTextures)
-                {
-                    animatedTexture.Dispose();
-                }
-                animatedTextures = null;
-            }
-
+            cancellationTokenSource?.Cancel();
+            cancellationTokenSource = null;
+            stream?.Dispose();
+            stream = null;
             target.material.mainTexture = null;
         }
-        
+
         private async UniTask DownloadAndStartAnimationAsync()
         {
-            ClearTextures();
-            
+            Clear();
+
             var client = SingletonHttpClient.Instance;
-            
+
             await UniTask.SwitchToThreadPool();
 
             var data = await client.GetByteArrayAsync(url);
 
-            using var stream = new MemoryStream(data);
-
-            var result = AnimatedGifDecoder.DecodeGifImage(stream);
+            stream = new MemoryStream(data);
 
             await UniTask.SwitchToMainThread();
 
-            animatedTextures = result.ToAnimatedTextures()
-                .OrderBy(frame => frame.DelayInMs)
-                .ToList();
-
             cancellationTokenSource = new CancellationTokenSource();
-            StartAnimationLoop(cancellationTokenSource.Token).Forget();
+
+            StartAnimationLoop(stream, cancellationTokenSource.Token).Forget();
         }
 
-        private async UniTask StartAnimationLoop(CancellationToken cancellationToken)
+        private async UniTask StartAnimationLoop(Stream stream, CancellationToken cancellationToken)
         {
-            var index = 0;
-            
+            IEnumerator<TextureSharedAnimatedTexture> enumerator = null;
+
+            await UniTask.SwitchToMainThread(cancellationToken);
+
+            target.material.mainTexture = null;
+
             while (!cancellationToken.IsCancellationRequested)
             {
-                var frame = animatedTextures[index];
-                
-                target.material.mainTexture = frame.Texture;
-
-                await UniTask.Delay(frame.DelayInMs, DelayType.DeltaTime, PlayerLoopTiming.Update, cancellationToken);
-                
-                index++;
-                if (index >= animatedTextures.Count)
+                if (enumerator == null)
                 {
-                    index = 0;
+                    await UniTask.SwitchToThreadPool();
+
+                    // Decode GIF on a thread pool.
+                    stream.Seek(offset: 0, origin: 0);
+                    enumerator = AnimatedGifDecoder
+                        .DecodeGifImage(stream)
+                        .ToTextureSharedAnimatedTextures()
+                        .GetEnumerator();
+
+                    await UniTask.SwitchToMainThread(cancellationToken);
+                }
+
+                // NOTE: Call MoveNext() on the main thread.
+                if (enumerator.MoveNext())
+                {
+                    var frame = enumerator.Current;
+
+                    if (target.material.mainTexture == null)
+                    {
+                        target.material.mainTexture = frame.Texture;
+                    }
+
+                    await UniTask.Delay(frame.DelayInMs, DelayType.DeltaTime, PlayerLoopTiming.Update,
+                        cancellationToken);
+                }
+                else
+                {
+                    enumerator.Dispose();
+                    enumerator = null;
                 }
             }
+
+            enumerator?.Dispose();
         }
     }
 }
