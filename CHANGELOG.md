@@ -14,6 +14,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Vertical flip of GIF textures.
 
+## [1.3.0] - 2023-01-05
+
+### Added
+- Lazy loading and reducing memory usage API for animated GIF.
+
+### Changed
+- Update `StbImageSharp` version from 2.22.6 to 2.27.12.
+- Update animated GIF demo for new API.
+
 ## [1.2.3] - 20222-09-26
 
 ### Changed

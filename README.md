@@ -51,7 +51,7 @@ private async UniTask<Texture2D> LoadImageAsync(byte[] data)
 
 See also [Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/Assets/Mochineko/StbImageSharpForUnity.Demo/ImageLoaderDemo.cs).
 
-For GIF images, see [GIF Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/Assets/Mochineko/StbImageSharpForUnity.Demo/GifLoaderDemo.cs).
+For animated GIF images, see [Animated GIF Demo](https://github.com/mochi-neko/StbImageSharpForUnity/blob/main/Assets/Mochineko/StbImageSharpForUnity.Demo/GifLoaderDemo.cs).
 
 ## Support Codecs
 
